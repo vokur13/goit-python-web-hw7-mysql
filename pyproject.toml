@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "goit-python-web-hw7-mysql"
+version = "0.1.0"
+description = ""
+authors = ["Volodymyr Kurov <vokur13@gmail.com>"]
+readme = "README.md"
+packages = [{include = "goit_python_web_hw7_mysql"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = "^2.0.19"
+python-decouple = "^3.8"
+mysql-connector-python = "^8.1.0"
+faker = "^19.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

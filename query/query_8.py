@@ -11,6 +11,7 @@ if __name__ == "__main__":
             select(
                 Professor.last_name,
                 Professor.first_name,
+                Subject.title,
                 func.round(func.avg(Grade.grade), 2),
             )
             .select_from(Professor)

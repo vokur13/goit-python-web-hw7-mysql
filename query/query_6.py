@@ -3,15 +3,15 @@
 from sqlalchemy import select, func
 
 from connect_db import session
-from models import Professor, Subject
+from models import Student, Faculty
 
 if __name__ == "__main__":
     stmt = (
         session.execute(
-            select(Professor.last_name, Professor.first_name, Subject.title)
-            .select_from(Professor)
-            .join(Subject)
-            .filter(Professor.id == 1)
+            select(Faculty.name, Student.last_name, Student.first_name)
+            .select_from(Faculty)
+            .join(Student)
+            .filter(Faculty.id == 1)
         )
         .mappings()
         .all()
@@ -23,4 +23,4 @@ if __name__ == "__main__":
 # SELECT f.name, s.last_name, s.first_name
 # FROM faculties AS f
 #          LEFT JOIN main.students s on f.id = s.faculty_id
-# WHERE f.name = 'Illustrator';
+# WHERE f.id = ?;

@@ -12,6 +12,7 @@ sqlalchemy = "^2.0.19"
 python-decouple = "^3.8"
 mysql-connector-python = "^8.1.0"
 faker = "^19.3.0"
+alembic = "^1.11.2"
 
 
 [build-system]

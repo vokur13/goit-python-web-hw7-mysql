@@ -12,7 +12,7 @@ if __name__ == "__main__":
                 Professor.last_name,
                 Professor.first_name,
                 Subject.title,
-                func.round(func.avg(Grade.grade), 2),
+                func.round(func.avg(Grade.grade), 2).label("avg_grade"),
             )
             .select_from(Professor)
             .join(Subject, Professor.id == Subject.professor_id)

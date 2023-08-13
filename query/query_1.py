@@ -11,11 +11,11 @@ if __name__ == "__main__":
         select(
             Student.last_name,
             Student.first_name,
-            func.round(func.avg(Grade.grade), 2),
+            func.round(func.avg(Grade.grade), 2).label("avg_grade"),
         )
         .join(Grade)
         .group_by(Student.id)
-        .order_by(desc(func.avg(Grade.grade)))
+        .order_by(desc("avg_grade"))
         .limit(5)
     ).mappings()
 

@@ -7,7 +7,13 @@ from models import Grade
 
 if __name__ == "__main__":
     stmt = (
-        (session.execute(select(func.round(func.avg(Grade.grade), 2)))).mappings().all()
+        (
+            session.execute(
+                select(func.round(func.avg(Grade.grade), 2).label("avg_grade"))
+            )
+        )
+        .mappings()
+        .all()
     )
 
     for item in stmt:

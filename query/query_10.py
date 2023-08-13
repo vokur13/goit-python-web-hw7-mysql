@@ -19,7 +19,7 @@ if __name__ == "__main__":
             .join(Grade, Student.id == Grade.student_id)
             .join(Subject, Subject.id == Grade.subject_id)
             .join(Professor, Professor.id == Subject.professor_id)
-            .filter(Student.id == 2)
+            .filter(Student.id == 1)
             .filter(Professor.id == 2)
             .group_by(Student.last_name, Student.first_name, Subject.title)
         )

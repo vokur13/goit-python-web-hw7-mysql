@@ -13,14 +13,14 @@ if __name__ == "__main__":
                 Student.first_name,
                 Student.last_name,
                 Subject.title,
-                func.round(func.avg(Grade.grade), 2),
+                func.round(func.avg(Grade.grade), 2).label("avg_grade"),
             )
             .select_from(Grade)
             .join(Subject, Grade.subject_id == Subject.id)
             .join(Student, Grade.student_id == Student.id)
             .filter(Subject.title == "Therapist, sports")
             .group_by(Student.last_name, Student.first_name, Subject.title)
-            .order_by(desc(func.avg(Grade.grade)))
+            .order_by(desc("avg_grade"))
             .limit(1)
         )
         .mappings()
